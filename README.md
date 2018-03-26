@@ -61,8 +61,12 @@
 #### 5) 全局属性
 - accesskey 快捷键 在Windows系统上是“Alt” + accesskey的值；
 - class 给元素归类用的；
-- contenteditable 赋予用户可修改的
-
+- contenteditable 赋予用户可修改的文字的权限，它的值是一个布尔值，“true”或者“false”；
+- contextmenu 用来为元素设置快捷菜单，即右键会弹出菜单，然而，暂时还没有支持该特性的浏览器；
+- dir 文字向左靠边还是向右靠边，“ltr” | “rtl”；
+- draggable 表示元素是否可被拖放；
+- dropzone 与draggable搭配使用；
+- hidden 是否隐藏该元素；
 
 
 
