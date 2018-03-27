@@ -58,6 +58,7 @@
 - 其他元素，如`<li>` ？不明所以
 
 <h3 id='1.2'>1.2 创建HTML文档</h3>  
+
 #### 1) 用户代理user agent
 >> 用于处理HTML文档的软件有一个共同的软件——用户代理user agent，浏览器是最流行的用户代理，但不是唯一的一种；
 
@@ -92,7 +93,8 @@
 - tabindex 键盘焦点的切换，一般用“tab”键，键值为1的会被首先选中，-1的不会被选中；
 - title 提供元素的额外信息，一般是一些提示，即你用光标移过去之后会出现提示；  
 
-<h3 id='1.3'> 1.3 HTML5元素背景知识 </h3>  
+<h3 id='1.3'> 1.3 HTML5元素背景知识 </h3> 
+
 #### 1) 语义与呈现分离  
 #### 2) 元素选用原则  
 >> 这里说的很含糊，其实并没有什么具体的可操作选用原则；  
@@ -102,7 +104,8 @@
 
 >>>>>>![图2-1 文档和元数据元素](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.1%20%E6%9E%84%E7%AD%91%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84.png?raw=true)  
 
-<h3 id='2.1'> 2.1 构筑基本的文档结构</h3>    
+<h3 id='2.1'> 2.1 构筑基本的文档结构</h3>  
+
 #### 1) DOCTYPE元素  
 >> 他告诉浏览器两件事：它处理的是HTML文档；用来标记文档内容HTML所属的版本；  
 #### 2) html元素  
@@ -110,9 +113,73 @@
 #### 3) head元素  
 >> 包含着文档的元数据和文档信息，元数据向浏览器提供有关文档内容和标记的信息，还包括CSS和JS的文档的引用；
 - title 标签页名字
-- base 有两个属性
-  - href 基准地址
-  - target 告诉浏览器如何打开URL
-- meta 
+- base 虚元素的形式，有两个属性
+  -- href 基准地址，如  	
+  -- target 告诉浏览器如何打开URL
+- meta 虚元素的形式  
+  -- name 使用“name”和“content”作为键值对；  
+  -- content；  
+  -- charset 声明字符编码
+  -- http-equiv 模拟HTTP标头字段，字段值由content表示
+  
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<title>欢迎页面</title>
+				<base href="http://"/>
+				<meta name="author" content="LvHongbin"/>
+				<meta name="description" content="A simple example"/>
+				<meta charset="utf-8"/>
+				<meta http-equiv="refresh" content="5"/>
+				<style type="text/css" scoped="">>
+					a{
+						background-color: grey;
+						color: white;
+						padding: 0.5em;
+					}
+				</style>
+			</head>
+			<body>
+				<a href="www.baidu.com">登陆页面</a> 
+			</body>
+		</html>  
+
+>>>>>> ![2.2 meta元素http-equiv属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.2%20meta%E5%85%83%E7%B4%A0http-equiv%E5%B1%9E%E6%80%A7.png?raw=true)
+  
+- style 
+  -- text 定义CSS样式
+  -- scoped html5新增的，可以设置属性scoped已规定作用域，如果不设置的话就作用于整个文档
+  -- media 规定设备值,可以  采用“AND”“NOT”和表示“OR”的逗号表示
+  
+>>>>>> ![2.3 style元素media属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.3%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7.png?raw=true)  
+  
+>>>>>> ![2.4 style元素media属性规定的设备值](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.4%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7%E8%A7%84%E5%AE%9A%E7%9A%84%E8%AE%BE%E5%A4%87%E5%80%BC.png?raw=true)  
+
+- link  
+  -- 虚元素的形式，指定外部资源，在HTML5中新增“size”的属性，去掉“charset”“rev”“target”的属性；
+  -- rel的值除了我们常见的“stylesheet”载入CSS文档，还有“icon”，表示为网站载入图标,还有预获取功能“prefetch”；  
+  -- type的值可以是“text/css”，还可以是“image/x-icon”  
+  -- 预获取功能“prefetch”,在用户点击某链接进入某个页面的前就已经进行预先加载。
+
+>>>>>> ![2.5 link元素属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.5%20link%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+- script  用于定义脚本并控制其执行方式，具有的属性包括：  
+  -- type 不使用该属性的时候，默认是js类型  
+  -- src 载入外部文件，设置了该属性的script元素只能是空白元素，不能既有src属性，又有内嵌内容。*另外，如果是引用外部的文件，则必须使用结束标签，不能采用自闭合标签，否则浏览器会忽略该外部文件的加载*；  
+  -- defer 一般来讲，浏览器是按顺序解析html文本和JS文档，但是有时候需要将JS文档放在最后执行，此时除了将该JS脚本放在html文档的末尾之外，还有一种方法，就是使用defer，该属性没有值，直接放进去就可以了。需要注意的是，该属性只能用于外部JS文档的引用，如果使用内嵌式的JS脚本则不起作用；  
+  -- async 异步执行脚本，该属性没有值，直接放进去就可以了  
+  -- charset 
+- noscript  
+>> 假如用户的浏览器不支持JS或者用户选择禁用JS的功能是，使用noscript给用户显示一些简短信息；  
+
+
+
+
+
+
+
+
+
+
 
 
