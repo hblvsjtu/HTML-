@@ -102,8 +102,7 @@
 
 >>>>>>![图2-1 文档和元数据元素](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.1%20%E6%9E%84%E7%AD%91%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84.png?raw=true)  
 
-<h3 id='2.1'> 2.1 构筑基本的文档结构</h3>  
-
+<h3 id='2.1'> 2.1 构筑基本的文档结构</h3>    
 #### 1) DOCTYPE元素  
 >> 他告诉浏览器两件事：它处理的是HTML文档；用来标记文档内容HTML所属的版本；  
 #### 2) html元素  
