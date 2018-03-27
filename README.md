@@ -25,7 +25,6 @@
 
 #### 1) 元素格式  
 >> 其实HTML其实HTML的职责应该被限定于说明文档内容的结构和含义，而并非内容呈现的形式，内容呈现形式的责任应该由CSS承担。  
-
 >>>>>> ![图1-1 元素格式](https://github.com/hblvsjtu/HTML_Study/blob/5f7ba08d23b8f4de45599032c5b7445e4de8da87/picture/%E5%9B%BE1-1%20%E5%85%83%E7%B4%A0%E6%A0%BC%E5%BC%8F.png?raw=true)   
 
 #### 2)	空元素
@@ -146,13 +145,12 @@
 		</html>  
 
 >>>>>> ![2.2 meta元素http-equiv属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.2%20meta%E5%85%83%E7%B4%A0http-equiv%E5%B1%9E%E6%80%A7.png?raw=true)  
-  
+
 - style 
 > - text 定义CSS样式
 > - scoped html5新增的，可以设置属性scoped已规定作用域，如果不设置的话就作用于整个文档
 > - media 规定设备值,可以  采用“AND”“NOT”和表示“OR”的逗号表示  
-
->>>>>> ![2.3 style元素media属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.3%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7.png?raw=true)   
+>>>>>> ![2.3 style元素media属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.3%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7.png?raw=true)  
 
 >>>>>> ![2.4 style元素media属性规定的设备值](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.4%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7%E8%A7%84%E5%AE%9A%E7%9A%84%E8%AE%BE%E5%A4%87%E5%80%BC.png?raw=true)  
 
@@ -161,7 +159,6 @@
 > - rel的值除了我们常见的“stylesheet”载入CSS文档，还有“icon”，表示为网站载入图标,还有预获取功能“prefetch”； 
 > - type的值可以是“text/css”，还可以是“image/x-icon”
 > - 预获取功能“prefetch”,在用户点击某链接进入某个页面的前就已经进行预先加载。  
-
 >>>>>> ![2.5 link元素属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.5%20link%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7.png?raw=true)  
 
 - script  用于定义脚本并控制其执行方式，具有的属性包括；
