@@ -107,9 +107,9 @@
 
 #### 1) DOCTYPE元素  
 >> 他告诉浏览器两件事：它处理的是HTML文档；用来标记文档内容HTML所属的版本；  
-#### 2) html元素  
+#### 2) html元素 开始标签和结束标签    
 >> 有一个更加恰当的名字*根元素*；  
-#### 3) head元素  
+#### 3) head元素 开始标签和结束标签    
 >> 包含着文档的元数据和文档信息，元数据向浏览器提供有关文档内容和标记的信息，还包括CSS和JS的文档的引用；
 - title 标签页名字
 - base 虚元素的形式，有两个属性
@@ -120,6 +120,23 @@
 > - content；  
 > - charset 声明字符编码
 > - http-equiv 模拟HTTP标头字段，字段值由content表示  
+
+>>>>>> ![2.2 meta元素http-equiv属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.2%20meta%E5%85%83%E7%B4%A0http-equiv%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+- style 开始标签和结束标签  
+> - text 定义CSS样式
+> - scoped html5新增的，可以设置属性scoped已规定作用域，如果不设置的话就作用于整个文档
+> - media 规定设备值,可以  采用“AND”“NOT”和表示“OR”的逗号表示  
+>>>>>> ![2.3 style元素media属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.3%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+>>>>>> ![2.4 style元素media属性规定的设备值](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.4%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7%E8%A7%84%E5%AE%9A%E7%9A%84%E8%AE%BE%E5%A4%87%E5%80%BC.png?raw=true)  
+
+- link 开始标签和结束标签   
+> - 虚元素的形式，指定外部资源，在HTML5中新增“size”的属性，去掉“charset”“rev”“target”的属性；
+> - rel的值除了我们常见的“stylesheet”载入CSS文档，还有“icon”，表示为网站载入图标,还有预获取功能“prefetch”； 
+> - type的值可以是“text/css”，还可以是“image/x-icon”
+> - 预获取功能“prefetch”,在用户点击某链接进入某个页面的前就已经进行预先加载。  
+>>>>>> ![2.5 link元素属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.5%20link%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7.png?raw=true)  
 
 		<!DOCTYPE html>
 		<html>
@@ -143,24 +160,7 @@
 			</body>
 		</html>  
 
->>>>>> ![2.2 meta元素http-equiv属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.2%20meta%E5%85%83%E7%B4%A0http-equiv%E5%B1%9E%E6%80%A7.png?raw=true)  
-
-- style 
-> - text 定义CSS样式
-> - scoped html5新增的，可以设置属性scoped已规定作用域，如果不设置的话就作用于整个文档
-> - media 规定设备值,可以  采用“AND”“NOT”和表示“OR”的逗号表示  
->>>>>> ![2.3 style元素media属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.3%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7.png?raw=true)  
-
->>>>>> ![2.4 style元素media属性规定的设备值](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.4%20style%E5%85%83%E7%B4%A0media%E5%B1%9E%E6%80%A7%E8%A7%84%E5%AE%9A%E7%9A%84%E8%AE%BE%E5%A4%87%E5%80%BC.png?raw=true)  
-
-- link 
-> - 虚元素的形式，指定外部资源，在HTML5中新增“size”的属性，去掉“charset”“rev”“target”的属性；
-> - rel的值除了我们常见的“stylesheet”载入CSS文档，还有“icon”，表示为网站载入图标,还有预获取功能“prefetch”； 
-> - type的值可以是“text/css”，还可以是“image/x-icon”
-> - 预获取功能“prefetch”,在用户点击某链接进入某个页面的前就已经进行预先加载。  
->>>>>> ![2.5 link元素属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.5%20link%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7.png?raw=true)  
-
-- script  用于定义脚本并控制其执行方式，具有的属性包括；
+- script  开始标签和结束标签，用于定义脚本并控制其执行方式，具有的属性包括；
 > - type 不使用该属性的时候，默认是js类型
 > - src 载入外部文件，设置了该属性的script元素只能是空白元素，不能既有src属性，又有内嵌内容。*另外，如果是引用外部的文件，则必须使用结束标签，不能采用自闭合标签，否则浏览器会忽略该外部文件的加载*；
 > - defer 一般来讲，浏览器是按顺序解析html文本和JS文档，但是有时候需要将JS文档放在最后执行，此时除了将该JS脚本放在html文档的末尾之外，还有一种方法，就是使用defer，该属性没有值，直接放进去就可以了。需要注意的是，该属性只能用于外部JS文档的引用，如果使用内嵌式的JS脚本则不起作用；
@@ -169,10 +169,52 @@
 - noscript 
 >> 假如用户的浏览器不支持JS或者用户选择禁用JS的功能是，使用noscript给用户显示一些简短信息；  
 
-<h3 id='2.2'> 2.2 文本元素</h3>  
+<h3 id='2.2'> 2.2 文本元素</h3>  
 
-#### 1) DOCTYPE元素  
->> 
+>>>>>> ![2.6 文本元素1](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.6%20%E6%96%87%E6%9C%AC%E5%85%83%E7%B4%A01.png?raw=true)  
+>>>>>> ![2.6 文本元素2](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.6%20%E6%96%87%E6%9C%AC%E5%85%83%E7%B4%A02.png?raw=true)  
+#### 1) 超链接a 开始标签和结束标签    
+>> href 指向外部的超链接；  
+>> href 指向内部的超链接，herf="# + id名称"，如果找不到这样的id，那么浏览器会尝试寻找name值等于该id值的元素；  
+>> target 设定浏览环境，其实就是决定新窗口在哪里打开的问题  
+>>>>>> ![2.7 a元素的target属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/2.7%20a%E5%85%83%E7%B4%A0%E7%9A%84target%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+#### 2) 用于设置文字格式的元素
+> - b元素 开始标签和结束标签，用于内容加粗；    
+> - em元素 开始标签和结束标签，用于内容强调，感觉就是做一个斜体；    
+> - i元素 开始标签和结束标签，用于外文词语或者科技术语；  
+> - s元素 开始标签和结束标签，用于不正确或者纠正，其实就是加一个删除线；  
+> - strong元素 开始标签和结束标签，用于一段重要的文字，其实就是把字体放大一号；  
+> - u元素 开始标签和结束标签，用于加下划线；  
+> - small元素 开始标签和结束标签，用于小一号字；  
+> - sup元素和sub 开始标签和结束标签，用于上标和下标；
+#### 3) 换行
+> - br元素 虚元素，用于强制换行；  
+> - wbr元素 虚元素，当一行装不下那么多的文字的时候自动换行；  
+#### 4) 输入和输出
+>> 包括code,car,samp,kbd，不过基本上用不到；  
+#### 5) 标题引用，引文，定义和缩写
+>> 基本上用不到； 
+#### 6) 使用语言元素
+> - ruby,rt和rp，HTML5新增的，开始标签和结束标签，这个还有些用，主要用来注音的，即在文字的上方加拼音；
+> - bdo 开始标签和结束标签，文字阅读的方向，跟dir属性一起使用；  
+> - bdi HTML5新增的，开始标签和结束标签，保证文字方向
+#### 7) 其他文本元素
+> - span元素 开始标签和结束标签，本身并没有什么特别的含义，它可以把一些全局属性用到一段内容上；
+> - mark元素 HTML5新增的，开始标签和结束标签，把文字变成黄底黑字；
+> - del/ins元素 开始标签和结束标签，删除或者添加；
+> - time元素 HTML5新增的，开始标签和结束标签，其实并不是很懂这个元素的用法；
+
+
+
+
+
+
+
+
+
+
+
 
 
 
