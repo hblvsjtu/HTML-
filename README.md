@@ -327,7 +327,7 @@
 > - address元素 开始标签和结束标签，如果作为article的后代元素，则视为为article提供联系信息；
 > - 如果是作为body元素的后代，则视为为整个文档提供联系信息；
 > - 只能作为body元素或者article元素的后代；  
-
+  
 ------   
   
     
@@ -403,13 +403,11 @@
 > - 以前的HTML4中input和button元素必须放在form元素里面，但是在HTML5中input和button元素可以放在外面，使用form属性将与特定的表单关联在一起。
 
 #### 2) 在表单中添加说明标签
-> - for属性，将for属性的值跟其后input的id值相等，这样可以帮助把该标签跟input元素关联起来，有利于屏幕阅读器和其他残障辅助技术对表单的处理。这里有两种方式，可以如  独立分开，也可以把input元素写在label元素里面
+> - for属性，将for属性的值跟其后input的id值相等，这样可以帮助把该标签跟input元素关联起来，有利于屏幕阅读器和其他残障辅助技术对表单的处理。这里有两种方式，可以如  独立分开，也可以把input元素写在label元素里面  
 
-    <label for="input1">input1</label><input id="input1" name="input1" type="text"/>
-    或者
-    <label for="input1">input1 <input id="input1"  name="input1" type="text"/></label>
-  
-    
+	<label for="input1">input1</label><input id="input1" name="input1" type="text"/>  
+	或者   
+	<label for="input1">input1 <input id="input1"  name="input1" type="text"/></label>  
     
 <h3 id='4.3'> 4.3 input元素和fieldset元素和button元素</h3>  
 
@@ -426,8 +424,6 @@
 > - 如果type属性为submit，那么该按钮会多出几个值，该值其实就是将原先属性form的属性搬到button来，不过他们都是在HTML5中新增的属性；
 >>>>>> ![4.3 button元素新增的属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.4%20button%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7.png?raw=true)  
 
-#### 3) button元素
-> - type属性
 
 
 
