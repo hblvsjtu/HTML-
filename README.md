@@ -20,6 +20,11 @@
 ### [2.4 流元素——文档分节](#2.4)
 ## [三、表格元素](#3)
 ### [3.1 表格元素](#3.1)
+### [3.2 制作不规则表格](#3.2)
+## [四、表单元素](#4)
+### [4.1 表格元素](#4.1)
+### [4.2 配置表单](#4.2)
+### [4.3 input元素和fieldset元素和button元素](#4.3)
 ------  
 
     
@@ -343,9 +348,6 @@
 >> caption|无|流内容|开始标签和结束标签|否
 >> colgroup|无|col *只有没有设定span属性的时候才能使用*|开始标签和结束标签|否
 >> col|无|流内容|虚元素|否
->> td|无|流内容|开始标签和结束标签|否
->> td|无|流内容|开始标签和结束标签|否
->> td|无|流内容|开始标签和结束标签|否
 
 #### 1) th元素 
 > - th元素 其父元素为tr，用于表示第一行的内容（表头）；
@@ -353,17 +355,80 @@
 > - 那问题来了，为什么需要表格格式化？我们知道，一般来讲第一行的单元格全都是表头th，下面的每一行的第一个单元格为th，那么使用CSS的时候要区分第一行中的全th和其余行的一个th比较麻烦，而且有时候其余行不仅只有一个th，这时候每次都需要更改CSS就比较麻烦。这时候表格的结构化应运而生；
 > - thead元素，其父元素是table元素，子元素是tr元素，表示表格的第一行；
 > - tfoot元素，其父元素是table元素，子元素是tr元素，表示表格的最后一行；
-> - tbody元素，其父元素是table元素，子元素是tr元素，表示表格除了第一行和最后一行的其余行；
-#### 3) 制作不规则的表格
+> - tbody元素，其父元素是table元素，子元素是tr元素，表示表格除了第一行和最后一行的其余行；  
+
+<h3 id='3.2'> 3.2 制作不规则的表格</h3>   
+
+#### 1) 制作不规则的表格
 > - colspan属性 合并多列，合并后的那些单元格被删除，只剩第一个；
 > - rowspan属性 合并多行，合并后的那些单元格被删除，只剩第一个；
-#### 4) colgroup元素
+#### 2) colgroup元素
 > - 主要用来方便对列进行分组处理；
 > - 属性span表示要处理那几列，比如span="2"，表示处理前面两列，如果再来一个colgroup元素，它的属性是span="3"，则表示处理第3~5列；
 > - 可以用col元素的span属性让一个col元素代表几列，不用span属性的col属性只代表一列；
-#### 5) 设置表格边框
+#### 3) 设置表格边框
 > - border属性，大多数浏览器止呕见到border属性之后才会在表格和每个单元格周围绘出边框；
-> - border属性的值必须设置为1或者空字符串
+> - border属性的值必须设置为1或者空字符串；  
+
+------   
+  
+    
+<h2 id='4'> 四、 表单元素</h2>
+<h3 id='4.1'> 4.1 表单元素</h3>  
+
+>> 在HTML早期的版本中，用表格控制页面内容布局的现象很常见，但HTML5不再允许这样做，取而代之的是CSS的新特性；
+>>>>>> ![4.1 表单元素a](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.1%20%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0a.png?raw=true)  
+>>>>>> ![4.1 表单元素b](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.1%20%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0b.png?raw=true)
+
+>> 元素|元素类型|内容|元素结束方式|是否HTML5新增
+>> -|-|-|-|-
+>> form|流|主要是label元素和input元素|开始标签和结束标签|否
+>> input|短语|无|虚元素|否
+>> button|无|流内容|开始标签和结束标签|否
+>> label|短语|短语内容|开始标签和结束标签|否
+>> fieldset|流|流内容|开始标签和结束标签|否
+  
+  
+<h3 id='4.2'> 4.2 配置表单</h3>  
+
+#### 1) 配置表单
+> - action属性 把用户的数据发送到什么地方，一般是一个网页地址；
+> - method属性 允许的值只有get和post两个。get：用于安全交互safe interaction，同一个请求发起任意多次不会产生额外作用，一般用于请求只读信息，而post请求则用于不安全的请求，提交数据的行为会导致一些状态的改变，对于Web应用程序多半采用这种方式。
+> - enctype属性 指定了浏览器对发送给服务器的数据采用的编码方式，第一种方式是默认的，其中的特殊字符已经替换成相应的HTML实体，数据项的名称和值以等号分开，各组数据间以符号&分开；第三种方式每家浏览器都有自己的处理方案，结果难以预料，所以最好不要采用。
+>>>>>> ![4.2 配置数据编码](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.2%20%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81.png?raw=true)  
+
+> - autocomplete属性，帮助用户记住输入表单的数据，并在再次遇到类似的表单的时候可以自动填写，它有两个值，on和off；
+> - target属性
+> - name属性，form的name属性只用于DOM中，并不会发送给服务器，而input的name属性如果不设置的话，数据在提交表单的时候不会被发送给服务器，所以input元素的name属性和id属性最好是同一个值。
+> - 以前的HTML4中input和button元素必须放在form元素里面，但是在HTML5中input和button元素可以放在外面，使用form属性将与特定的表单关联在一起。
+
+#### 2) 在表单中添加说明标签
+> - for属性，将for属性的值跟其后input的id值相等，这样可以帮助把该标签跟input元素关联起来，有利于屏幕阅读器和其他残障辅助技术对表单的处理。这里有两种方式，可以如  独立分开，也可以把input元素写在label元素里面
+
+    <label for="input1">input1</label><input id="input1" name="input1" type="text"/>
+    或者
+    <label for="input1">input1 <input id="input1"  name="input1" type="text"/></label>
+  
+    
+    
+<h3 id='4.3'> 4.3 input元素和fieldset元素和button元素</h3>  
+
+#### 1) input元素
+> - autofocus属性，鼠标光标的聚焦，只有键没有值，一旦出现说明已经开启该功能；
+> - disable属性，禁用，只有键没有值，一旦出现说明已经开启该功能；
+#### 2) fieldset元素
+> - 其实就是给表单分组；
+> - 他也有对应的标签————legend元素；
+>>>>>> ![4.2 配置数据编码](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.3%20fieldset%E5%92%8Clegend%E5%85%83%E7%B4%A0.png?raw=true)    
+
+#### 3) button元素
+> - type属性，有三个值：submit，reset（将所有的input元素重置）和button（把button当一般元素使用，按下它不会做任何事情，但可以执行JS脚本）；
+> - 如果type属性为submit，那么该按钮会多出几个值，该值其实就是将原先属性form的属性搬到button来，不过他们都是在HTML5中新增的属性；
+>>>>>> ![4.3 button元素新增的属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.4%20button%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+#### 3) button元素
+> - type属性
+
 
 
 
