@@ -27,6 +27,12 @@
 ### [4.3 input元素和fieldset元素和button元素](#4.3)
 ### [4.4 定制input元素](#4.4)
 ### [4.5 其他表单元素及输入验证](#4.5)
+## [五、嵌入内容](#5)
+### [5.1 嵌入图像](#5.1)
+### [5.2 嵌入另一张HTML文档](#5.2)
+### [5.3 通过插件嵌入内容](#5.3)
+### [5.4 嵌入数字表现形式](#5.4)
+
 ------  
 
     
@@ -490,7 +496,7 @@
 		</html> 
 
 
-<h3 id='4.4'> 4.5 其他表单元素及输入验证</h3>  
+<h3 id='4.5'> 4.5 其他表单元素及输入验证</h3>  
 
 >>>>>> ![4.6 其他表单元素及输入验证](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.6%20%E5%85%B6%E4%BB%96%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E5%8F%8A%E8%BE%93%E5%85%A5%E9%AA%8C%E8%AF%81.png?raw=true)   
 
@@ -502,13 +508,8 @@
 >> option|无|字符数据|虚元素/开始标签和结束标签|否
 >> textarea|短语|字符数据|开始标签和结束标签|否
 >> output|短语|短语内容|开始标签和结束标签|是		
->> keygen|短语|无|虚元素|否
->> thead|无|tr|开始标签和结束标签|否
->> tfoot|无|tr|开始标签和结束标签|否
->> tbody|无|tr|开始标签和结束标签|否
->> caption|无|流内容|开始标签和结束标签|否
->> colgroup|无|col *只有没有设定span属性的时候才能使用*|开始标签和结束标签|否
->> col|无|流内容|虚元素|否
+>> keygen|短语|无|虚元素|否  
+
 
 #### 1) datalist元素
 #### 2) textarea元素
@@ -549,7 +550,83 @@
 > - 从HTML5引入，可以作为后台验证的补充，但是不能完全替代后者；
 > - required属性
 > - min/max属性
-> - pattern属性 正则表达式匹配
+> - pattern属性 正则表达式匹配  
+
+------   
+  
+    
+<h2 id='5'> 五、 嵌入内容</h2>  
+
+>>>>>> ![5.1 嵌入内容元素](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.1%20%E5%B5%8C%E5%85%A5%E5%86%85%E5%AE%B9%E5%85%83%E7%B4%A0.png?raw=true)  
+
+>> 元素|元素类型|内容|元素结束方式|是否HTML5新增
+>> -|-|-|-|-
+>> img|短语|无|虚元素|否  
+>> map|短语/流|area元素|开始标签和结束标签|否
+>> area|短语|无|虚元素|否
+>> iframe|短语|字符数据|开始标签和结束标签|否
+>> embed|短语|无|虚元素|是
+>> object|短语/流|短语/流/param|开始标签和结束标签|否		
+>> param|无|无|虚元素|否
+>> progress|短语|短语内容|开始标签和结束标签|是
+>> meter|短语|短语内容|开始标签和结束标签|是  
+
+
+<h3 id='5.1'> 5.1 嵌入图像</h3>  
+
+#### 1)img元素——服务器端的分区响应图
+> - ismap属性，把img元素嵌入到a元素当中，然后设置ismap属性，其实这个属性没有值，出现即代表打开这个功能然后他会在a元素的链接中添加点击的坐标，单位是像素
+>>>>>> ![5.2 服务器端的分区响应图](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.2%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E5%88%86%E5%8C%BA%E5%93%8D%E5%BA%94%E5%9B%BE.png?raw=true)  
+>>>>>> ![5.3 服务器端的分区响应图处理](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.3%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E5%88%86%E5%8C%BA%E5%93%8D%E5%BA%94%E5%9B%BE%E5%A4%84%E7%90%86.png?raw=true)  
+
+#### 2)map元素——客户端的分区响应图
+> - 根据用户在图上点击的不同分区，导航到不同的URL
+> - 不过需要注意的是，需要在map元素中添加“usemap”属性，其值为“#”+map元素的name值，这种方法叫做*井号串名称引用*
+> - shape 形状，如rect，circle，poly，default
+> - coords 坐标，一般是rect的坐标有四个，以图像的左边缘和上边缘为参考，rect的左上右下分别离参考的举例；circle就是圆心坐标和半径，poly就是至少包含6个用逗号分隔的整数，每一对数字各代表多边形的一个顶点；default，默认区域，就是整块图片区域，这个属性不需要提供coords值；  
+>>>>>> ![5.4 客户端的分区响应图](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.4%20%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%88%86%E5%8C%BA%E5%93%8D%E5%BA%94%E5%9B%BE.png?raw=true)   
+
+<h3 id='5.2'> 5.2 嵌入另一张HTML文档</h3>  
+
+#### 1)iframe元素
+> - 在target属性的值置为iframe属性的名称，便可引用，具有target属性的元素都可以，比如a元素，form元素，button元素，input元素；
+> - 这种引用属于外部引用；
+> - 称这种外部被引用的元素为*浏览上下文*；
+> - 可以设置width属性和height属性；
+> - 利用src属性可以设置默认URL地址；
+> - sandbox沙盒，无值属性或者有值属性都可以，当出现的是无值属性的时候，利用它可以对HTML文档进行限制，比如禁止使用脚本，表单，插件和只想其他浏览上下文的链接；如果出现的是有值属性时，便可以单独开启某些功能，而其余功能则禁用，如“allow-forms” “allow-scripts” “allow-top-navigation” “allow-same-origin”  
+
+<h3 id='5.3'> 5.3 通过插件嵌入内容</h3>  
+
+#### 1)embed元素
+> - object元素和embed以前是用来作为添加插件使用，后来object元素在HTML4中被引入，而embed则在HTML5中被引入;
+>>>>>> ![5.5 embed元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.5%20embed%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)  
+
+#### 2)object元素
+> - 可以用来嵌入图片或者视频，但是嵌入图片已经有img元素了，建议使用img元素；
+> - 子元素param用来定义将要传递给插件的参数，每个需要定义的参数各自使用一个param元素；
+> - 奇怪的是object元素不使用src属性，取而代之的是data属性
+> - 如果是利用object元素嵌入图片的话，需要利用data属性存放URL，然后type的值为“image/png”，如果需要做一个客户端的分区响应图的话，需要添加usemap属和*井号串名称引用*
+> - 也可以作为浏览上下文环境，像iframe一样，不过text的值要改为“text/html”
+>>>>>> ![5.6 object元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.6%20object%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)   
+
+
+<h3 id='5.4'> 5.4 嵌入数字表现形式</h3>  
+
+#### 1)progress——显示进度
+> - 范围0~1，用浮点数表示进度
+> - max属性，value属性和form属性；
+>>>>>> ![5.7 progress元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.7%20progress%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)   
+
+#### 2)meter——显示范围里面的值
+> - 范围0~1，用浮点数表示进度
+> - 属性包括min,max,low（过低）,high（过高）和optimum（最佳）
+>>>>>> ![5.8 meter元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.8%20meter%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)   
+
+
+
+
+
 
 
 
