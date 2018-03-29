@@ -32,7 +32,8 @@
 ### [5.2 嵌入另一张HTML文档](#5.2)
 ### [5.3 通过插件嵌入内容](#5.3)
 ### [5.4 嵌入数字表现形式](#5.4)
-
+## [六、理解DOM](#6)
+### [6.1 理解DOM](#6.1)
 ------  
 
     
@@ -621,7 +622,27 @@
 #### 2)meter——显示范围里面的值
 > - 范围0~1，用浮点数表示进度
 > - 属性包括min,max,low（过低）,high（过高）和optimum（最佳）
->>>>>> ![5.8 meter元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.8%20meter%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)   
+>>>>>> ![5.8 meter元素的使用](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/5.8%20meter%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8.png?raw=true)  
+
+------   
+  
+    
+<h2 id='6'> 六、 理解DOM</h2>  
+
+<h3 id='6.1'> 6.1 理解DOM</h3>  
+
+#### 1)什么是DOM
+> - Document Object Model，文档对象模型，一组元素（对象）的集合;
+> - DOM是HTML文档的结构和内容与JS之间的桥梁；
+> - 每个HTML文档对象对应着一个JS对象
+#### 2)兼容性的问题
+> - DOM规范和HTML规范是分别开发的，存在碎片化的问题；
+> - 不同的浏览器标准不一样，可能需要到浏览器的稳定版出来后才能测试才能稳定下来  
+
+------  
+
+由于CSS和JS自成一体，所以我打算后面去分别学《CSS权威指南》和《JS权威指南》
+
 
 
 
