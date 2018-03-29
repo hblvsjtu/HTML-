@@ -25,6 +25,8 @@
 ### [4.1 表格元素](#4.1)
 ### [4.2 配置表单](#4.2)
 ### [4.3 input元素和fieldset元素和button元素](#4.3)
+### [4.4 定制input元素](#4.4)
+### [4.5 其他表单元素及输入验证](#4.5)
 ------  
 
     
@@ -422,7 +424,132 @@
 #### 3) button元素
 > - type属性，有三个值：submit，reset（将所有的input元素重置）和button（把button当一般元素使用，按下它不会做任何事情，但可以执行JS脚本）；
 > - 如果type属性为submit，那么该按钮会多出几个值，该值其实就是将原先属性form的属性搬到button来，不过他们都是在HTML5中新增的属性；
->>>>>> ![4.3 button元素新增的属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.4%20button%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7.png?raw=true)  
+>>>>>> ![4.3 button元素新增的属性](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.4%20button%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7.png?raw=true)  
+
+<h3 id='4.4'> 4.4 定制input元素</h3>  
+
+>>>>>> ![4.5 input元素的类型](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.5%20input%E5%85%83%E7%B4%A0%E7%9A%84%E7%B1%BB%E5%9E%8B.png?raw=true)  
+
+#### 1) 属性
+> - size,设定元素可显示的最小值字符数；
+> - maxlength,设定元素可输入的最大字符数；
+> - value,设定元素的初始值，也即默认值；
+> - placeholder，设置一段提示文字，告诉用户应该输入什么类型的数据，其实是类似水印一般的文字；
+> - readonly，只读；
+> - disable，禁用；
+> - checked，选中；
+> - required，必选项；
+#### 2) 类型
+> - submit
+> - reset
+> - button
+> - number step,max,min,作为number类型的附加属性
+> - checkbox，
+> - radio input的name相同为一组，可以加上checked属性表示初始选中；
+> - 时间类型，如datetime,date,month,time,week
+> - search
+> - hidden
+> - image 图像按钮，属性src可以用来添加图像URL，也可以通过设置height和width改变其尺寸
+> - file 需要在form的属性那里enctype设置编码类型为"multipart/form-data"
+
+	<!DOCTYPE html>
+		<html>
+			<head>
+				<title>form表单</title>
+			</head>
+			<body>
+				<form>
+					<p>
+						<label for="input1">选择<input name="input1" id="input1" list="list1"/><label>
+						<button type="submit">提交</button>
+					</p>
+					<p>
+						<fieldset>
+							<legend>radio:Select your favorite fruit</legend>
+							<label for="Select1">
+								<input name="fruit" id="Select1" type="radio" checked value="Apples"/>
+								Apples
+							</label>
+							<label for="Select2">
+								<input name="fruit" id="Select2" type="radio"  value="Oranges"/>
+								Oranges
+							</label>
+							<label for="Select3">
+								<input name="fruit" id="Select3" type="radio"  value="Cherries"/>
+								Cherries
+							</label>
+						</fieldset>
+					</p>
+				</form>
+				<datalist id="list1">
+					<option value="Apples" label="Apples"/>
+					<option value="Oranges">Lovely Oranges</option>
+					<option value="Cherries"/>
+				</datalist>
+			</body>
+		</html> 
+
+
+<h3 id='4.4'> 4.5 其他表单元素及输入验证</h3>  
+
+>>>>>> ![4.6 其他表单元素及输入验证](https://github.com/hblvsjtu/HTML_Study/blob/master/picture/4.6%20%E5%85%B6%E4%BB%96%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E5%8F%8A%E8%BE%93%E5%85%A5%E9%AA%8C%E8%AF%81.png?raw=true)   
+
+>> 元素|元素类型|内容|元素结束方式|是否HTML5新增
+>> -|-|-|-|-
+>> datalist|短语|option和短语内容|开始标签和结束标签|是  
+>> select|短语|option和optgroup|开始标签和结束标签|否
+>> optgroup|无|option|开始标签和结束标签|否
+>> option|无|字符数据|虚元素/开始标签和结束标签|否
+>> textarea|短语|字符数据|开始标签和结束标签|否
+>> output|短语|短语内容|开始标签和结束标签|是		
+>> keygen|短语|无|虚元素|否
+>> thead|无|tr|开始标签和结束标签|否
+>> tfoot|无|tr|开始标签和结束标签|否
+>> tbody|无|tr|开始标签和结束标签|否
+>> caption|无|流内容|开始标签和结束标签|否
+>> colgroup|无|col *只有没有设定span属性的时候才能使用*|开始标签和结束标签|否
+>> col|无|流内容|虚元素|否
+
+#### 1) datalist元素
+#### 2) textarea元素
+> - rows属性
+> - cols属性
+> - wrap属性，有hard和soft两个值，当设置为hard时，将会插入换行符，苏提交的文字中每一行的字符数都不会超过cols属性的规定
+> - rows属性
+> - rows属性
+
+	<!DOCTYPE html>
+		<html>
+			<head>
+				<title>form表单</title>
+			</head>
+			<body>
+				<form>
+					<label for="input1">
+						选择:
+						<select id="list1">
+							<optgroup label="fruit">
+								<option value="Apples" label="Apples"/>
+								<option value="Oranges">Lovely Oranges</option>
+							</optgroup>
+							<optgroup label="others">
+								<option value="Cherries" label="Cherries"/>
+							</optgroup>
+						</select>
+					<label>
+					<button type="submit">提交</button>
+				</form>
+				
+			</body>
+		</html>
+		
+#### 3)keygen元素
+> - 用于生成公开/私有密钥对，提交表单的时候，该元素会生成一对新的密钥，公钥被发给服务器，私钥则由浏览器保留并存入用户的密钥仓库。看来要补充一下密码学的知识了。
+#### 4)输入验证
+> - 从HTML5引入，可以作为后台验证的补充，但是不能完全替代后者；
+> - required属性
+> - min/max属性
+> - pattern属性 正则表达式匹配
 
 
 
